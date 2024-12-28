@@ -11,15 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@RequiredArgsConstructor
+@RequiredArgsConstructor
 public class RedisController {
-//  private final RedisService redisService;
 
   private final RedisService redisService;
-
-  public RedisController(RedisService redisService) {
-    this.redisService = redisService;
-  }
 
   @RateLimit(limit = 5, window = 60) // Allow 5 requests per 60 seconds
   @PostMapping("/add")
